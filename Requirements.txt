@@ -1,0 +1,4 @@
+python==3.7.9
+pandas==
+openai==
+tiktoken==
