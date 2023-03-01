@@ -1,4 +1,4 @@
-python==3.7.9
+python==3.10.10
 pandas==1.4.2
 openai==0.26.4
 tiktoken==0.1.2
