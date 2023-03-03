@@ -116,14 +116,18 @@ print(f"\nQ: {query}\nA: {answer}")
 
 app = Flask(__name__)
 
-class Question(BaseModel):
-    question : str
+@app.route('/home')
+def home():
+    return "Hello World"
 
-@app.route('/get_question', methods=['POST'])
-@validate()
-def get_answer(query : Question):
+@app.route('/answer_query', methods=['POST'])
+def answer_query():
+    json_data = request.json
+    query = json_data['query']
     answer = answer_query_with_context(query, df, document_embeddings)
-    return jsonify({'answer': answer})
+    response = {'answer': answer}
+    return jsonify(response)
 
-if __name__= __"main"__:
-    app.run(host='0.0.0.0', port=12345, debug=True)
+
+if __name__ == "__main__":
+    app.run(debug=True)
