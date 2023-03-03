@@ -125,4 +125,5 @@ def get_answer(query : Question):
     answer = answer_query_with_context(query, df, document_embeddings)
     return jsonify({'answer': answer})
 
-app.run(host='0.0.0.0', port=8080)
+if __name__= __"main"__:
+    app.run(host='0.0.0.0', port=12345, debug=True)
