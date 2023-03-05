@@ -9,7 +9,7 @@ from flask_pydantic import validate
 
 COMPLETIONS_MODEL = "text-davinci-003"
 EMBEDDING_MODEL = "text-embedding-ada-002"
-openai.api_key = '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'
+openai.api_key = ''
 df = pd.read_csv('dataset_dg_token_terbaru.csv')
 df = df.set_index(["kategori", "tanggal_publikasi"])
 df = df.loc[~df.index.duplicated(keep='first')]
