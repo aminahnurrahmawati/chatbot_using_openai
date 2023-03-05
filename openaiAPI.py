@@ -116,9 +116,10 @@ def home():
 
 @app.route('/answer_query', methods=['POST'])
 def answer_query():
-    json_data = request.json
-    query = json_data['query']
-    answer = answer_query_with_context(query, df, document_embeddings)
+    data = request.get_data()
+    query = json.loads(data)
+    my_string = query.get('question') #input your questions on Body of endpoint
+    answer = answer_query_with_context(my_string, df, document_embeddings)
     response = {'answer': answer}
     return jsonify(response)
 
@@ -128,26 +129,7 @@ if __name__ == "__main__":
     #app.run(host='127.0.0.1', port=12345, debug= True)
 
 
-"""""
 
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-@app.route("/answer", methods=["POST"])
-def answer():
-    prompt = request.form["prompt"]
-    answer = answer_query_with_context(prompt,df, document_embeddings)
-    #return render_template("answer.html", prompt=prompt, answer=answer)
-    return jsonify({'answer': answer})
-
-
-query = "siapakah gubernur jakarta?"
-answer = answer_query_with_context(query, df, document_embeddings)
-
-print(f"\nQ: {query}\nA: {answer}")
-
-"""
 
 
 
