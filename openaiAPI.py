@@ -11,7 +11,7 @@ from flask_pydantic import validate
 
 COMPLETIONS_MODEL = "text-davinci-003"
 EMBEDDING_MODEL = "text-embedding-ada-002"
-openai.api_key = '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' #change api key using your own, this key might not be functioning anymore because it's already exposed on this repo
+openai.api_key = '' #change api key using your own, this key might not be functioning anymore because it's already exposed on this repo
 
 df = pd.read_csv('dataset_dg_token_terbaru.csv')
 df = df.set_index(["kategori", "tanggal_publikasi"])
